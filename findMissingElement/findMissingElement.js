@@ -15,6 +15,13 @@ sentence의 길이는 5,000 이하입니다.
 sentence는 알파벳, 공백 그리고 특수문자(아스키코드)로 이루어져 있습니다.
 sentence가 완벽한 문자열이 되기 위해 필요한 알파벳 소문자들을 오름차순으로 정렬 후 문자열로 합쳐서 return 해주세요.
 sentence가 완벽한 문자열인 겨우 "perfect"를 return 해주세요.
+
+<입출력 예>
+입력 : "His comments came after Pyongyang announced it had a plan to fire four missiles near the US territory of Guam."
+출력 : "bjkqvwyz"
+
+입력 : "Jackdaws love my big sphinx of quartz"
+출력 : "perfect"
 */
 
 function solution(sentence) {

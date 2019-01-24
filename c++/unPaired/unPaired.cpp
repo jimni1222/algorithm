@@ -30,21 +30,35 @@
     all but one of the values in A occur an even number of times.
     Copyright 2009–2019 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 */
+
 #include <map>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 int solution(vector<int> &A) {
-    int unpaired = -1;
-    // write your code in C++14 (g++ 6.2.0)
     map<int, int> map;
+    
+    if(A.size() == 1){return A[0];}
+    
+    sort(A.begin(), A.end());
+
+    int current_number = 0;
+    int count = 0;
+    
     for(auto const& num: A){
-        if(map.find(num) == map.end()){
-            map[num] = 1;
-        }else{
-            map.erase(num);
+        if(current_number == 0){
+            current_number = num;
+        }else if(current_number != num){
+            if(current_number != 0 && count%2 != 0){
+                return current_number;
+            }
+            current_number = num;
+            count = 0;
         }
+        count++;
     }
-    for(auto iter = map.begin(); iter != map.end(); ++iter){
-        if(iter->second > 0){ unpaired = iter->first;}
-    }
-    return unpaired;
+    return current_number;
 }

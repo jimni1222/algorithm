@@ -22,15 +22,10 @@ n은 Math.pow(2, 31) -1 이하의 자연수 입니다.
 
 int solution(int n) {
 
-   int twos = 0, fives = 0;
-
-   for(long long i = 2; i <= n; i *= 2) {
-       twos += n / i;
-   }
-   
+   int fives = 0;
    for(long long i = 5; i <= n; i *= 5) {
        fives += n / i;
    }
 
-   return twos > fives ? fives : twos;
+   return fives;
 }

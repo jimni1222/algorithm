@@ -33,6 +33,7 @@ function solution(sentence) {
     const set = new Set(sentence)
     const indexArray = new Array(26).fill(0)
     let lastIndex = -1
+
     for (const ch of set) {
         let index = getIndex(ch)
         if (index === undefined) { continue }
@@ -42,10 +43,18 @@ function solution(sentence) {
         }
         lastIndex = index
     }
+
+    for (let i = lastIndex; i < 26; i++) {
+        if (indexArray[i] === 0) {
+            unusedChar.push(String.fromCharCode('a'.charCodeAt() + i))
+        }
+    }
+
     answer = unusedChar.join("")
     if (answer.length === 0) {
         answer = "perfect"
     }
+
     return answer
 }
 

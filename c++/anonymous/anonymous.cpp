@@ -43,9 +43,9 @@
 using namespace std;
 
 vector<int> solution(vector<int> &A, int K) {
+    if( A.size() <= 1 || (unsigned int)K == A.size() || K == 0 ){return A;}
     K = K % A.size(); 
-    
-    if( A.size() <= 1 || (unsigned int)K == 0 ){return A;}
+
     vector<int> vec(A);
     
     vec.insert(vec.begin(), A.end()-K, A.end());
